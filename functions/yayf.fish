@@ -65,27 +65,6 @@ function yayf -d "Interactive package search and install with yay and fzf"
     echo "Package information:"
     yay -Si "$package_name" 2>/dev/null | head -10
     echo
-    
-    # Confirm installation
-    read -P "Do you want to install this package? [Y/n]: " -n 1 confirm
-    echo
-    
-    switch "$confirm"
-        case "y" "Y" ""
-            echo "Installing $package_name..."
-            yay -S "$package_name"
-            
-            if test $status -eq 0
-                echo
-                echo "Package $package_name installed successfully!"
-            else
-                echo
-                echo "Error installing package $package_name."
-                return 1
-            end
-            
-        case '*'
-            echo "Installation cancelled."
-            return 1
+
     end
 end
