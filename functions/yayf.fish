@@ -22,17 +22,10 @@ function yayf -d "Interactive package search and install with yay and fzf"
         sub(/.*\//, "", pkg)
         version = $2
         
-        # Store package info
+        # Store package info (without description)
         packages[NR] = repo "/" pkg " " version
         pkg_names[NR] = pkg
         repos[NR] = repo
-    }
-    /^    / {
-        # Description line
-        desc = substr($0, 5)
-        if (NR-1 in packages) {
-            packages[NR-1] = packages[NR-1] " | " desc
-        }
     }
     END {
         for (i in packages) {
@@ -64,7 +57,27 @@ function yayf -d "Interactive package search and install with yay and fzf"
     # Show package information
     echo "Package information:"
     yay -Si "$package_name" 2>/dev/null | head -10
-    echo
 
+    # Confirm installation
+    read -P "Do you want to install this package? [Y/n]: " -n 1 confirm
+    echo
+    
+    switch "$confirm"
+        case "y" "Y" ""
+            echo "Installing $package_name..."
+            yay -S "$package_name" --noconfirm
+            
+            if test $status -eq 0
+                echo
+                echo "Package $package_name installed successfully!"
+            else
+                echo
+                echo "Error installing package $package_name."
+                return 1
+            end
+            
+        case '*'
+            echo "Installation cancelled."
+            return 1 
     end
 end
