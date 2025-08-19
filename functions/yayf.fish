@@ -9,6 +9,7 @@ function yayf -d "Interactive package search and install with yay and fzf"
     # Check if yay is installed
     if not type -q yay
         echo "Error: yay is not installed. Please install it first."
+        echo "use git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si"
         return 1
     end
 
