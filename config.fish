@@ -1,6 +1,6 @@
 if status is-interactive
     starship init fish | source
-    # starship preset nerd-font-symbols -o ~/.config/starship.toml
+    starship preset nerd-font-symbols -o ~/.config/starship.toml
 
     # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
     function __zoxide_pwd
