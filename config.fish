@@ -1,4 +1,16 @@
+set -l required_tools zoxide eza bat starship fzf
+for tool in $required_tools
+    if not command -v $tool &>/dev/null
+        echo "Instalando $tool..."
+        yay -S --noconfirm $tool
+    end
+end
+
 if status is-interactive
+    if not set -q FISH_FIRST_START_DONE
+        fastfetch
+        set -gx FISH_FIRST_START_DONE 1
+    end
     starship init fish | source
     starship preset nerd-font-symbols -o ~/.config/starship.toml
 
