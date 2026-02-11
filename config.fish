@@ -1,4 +1,39 @@
 if status is-interactive
+
+    # =============================================================================
+    #
+    # Set environment variables and other configuration for plugins.
+    #
+   # PATH base (opcional — normalmente o sistema já define corretamente)
+    fish_add_path /usr/local/sbin
+    fish_add_path /usr/local/bin
+    fish_add_path /usr/sbin
+    fish_add_path /usr/bin
+    fish_add_path /sbin
+    fish_add_path /bin
+
+    # Bun
+    set -gx BUN_INSTALL $HOME/.bun
+    fish_add_path $BUN_INSTALL/bin
+
+    # Opencode
+    fish_add_path /home/aj/.opencode/bin
+
+    # Cargo
+    fish_add_path $HOME/.cargo/bin
+
+    # Go
+    fish_add_path $HOME/go/bin
+
+    # Starship
+    starship init fish | source
+
+    # Zoxide
+    zoxide init fish | source
+
+    # Mise
+    ~/.local/bin/mise activate fish | source
+
     # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
     function __zoxide_pwd
         builtin pwd -L
@@ -84,20 +119,8 @@ if status is-interactive
     alias zi=__zoxide_zi
 
 
-    # =============================================================================
-    #
-    # Set environment variables and other configuration for plugins.
-    #
+    
 
-    starship init fish | source
-    starship preset nerd-font-symbols -o ~/.config/starship.toml
-    zoxide init fish | source
-    set --export BUN_INSTALL "$HOME/.bun"
-    set --export PATH $BUN_INSTALL/bin $PATH
-    export PATH=/home/aj/.opencode/bin:$PATH
-    set -gx PATH $HOME/.cargo/bin $PATH
-    set -x PATH $PATH $HOME/go/bin
-    ~/.local/bin/mise activate fish | source
 end
 
 
