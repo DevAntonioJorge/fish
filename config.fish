@@ -1,7 +1,4 @@
 if status is-interactive
-    starship init fish | source
-    starship preset nerd-font-symbols -o ~/.config/starship.toml
-
     # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
     function __zoxide_pwd
         builtin pwd -L
@@ -85,12 +82,22 @@ if status is-interactive
 
     abbr --erase zi &>/dev/null
     alias zi=__zoxide_zi
+
+
+    # =============================================================================
+    #
+    # Set environment variables and other configuration for plugins.
+    #
+
+    starship init fish | source
+    starship preset nerd-font-symbols -o ~/.config/starship.toml
     zoxide init fish | source
+    set --export BUN_INSTALL "$HOME/.bun"
+    set --export PATH $BUN_INSTALL/bin $PATH
+    export PATH=/home/aj/.opencode/bin:$PATH
+    set -gx PATH $HOME/.cargo/bin $PATH
+    set -x PATH $PATH $HOME/go/bin
+    ~/.local/bin/mise activate fish | source
 end
 
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
 
-# Fix go path
-set -x PATH $PATH $HOME/go/bin
