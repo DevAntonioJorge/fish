@@ -31,8 +31,7 @@ if status is-interactive
     # Zoxide
     zoxide init fish | source
 
-    # Mise
-    ~/.local/bin/mise activate fish | source
+    set --global fish_key_bindings fish_default_key_bindings
 
     # pwd based on the value of _ZO_RESOLVE_SYMLINKS.
     function __zoxide_pwd
