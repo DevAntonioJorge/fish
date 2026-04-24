@@ -124,3 +124,6 @@ end
 
 
 /home/aj/.local/bin/mise activate fish | source
+
+# opencode
+fish_add_path /home/aj/.opencode/bin
