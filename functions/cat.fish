@@ -1,3 +1,3 @@
 function cat
-    bat --color=auto $argv
+    bat --color=auto -l $argv
 end
