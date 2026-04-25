@@ -114,10 +114,23 @@ if status is-interactive
     abbr --erase z &>/dev/null
     alias z=__zoxide_z
 
-    abbr --erase zi &>/dev/null
+abbr --erase zi &>/dev/null
     alias zi=__zoxide_zi
 
+    # Git aliases
+    alias g="git"
+    alias gs="git status"
+    alias ga="git add"
+    alias gc="git commit"
+    alias gp="git push"
+    alias gl="git pull"
+    alias gd="git diff"
+    alias gco="git checkout"
+    alias gb="git branch"
+    alias glg="git log"
+    alias gst="git stash"
+    alias gstp="git stash pop"
+    alias gr="git restore"
 
-    
 
 end
