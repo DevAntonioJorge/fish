@@ -131,6 +131,6 @@ abbr --erase zi &>/dev/null
     alias gst="git stash"
     alias gstp="git stash pop"
     alias gr="git restore"
-
-
+    alias ls="eza --icons --group --header --group-directories-first"
+    alias la="eza --icons --group --header --group-directories-first --all"
 end
