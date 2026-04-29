@@ -11,6 +11,9 @@ if status is-interactive
     fish_add_path /usr/bin
     fish_add_path /sbin
     fish_add_path /bin
+    fish_add_path $HOME/.local/bin	
+    
+
 
     # Bun
     set -gx BUN_INSTALL $HOME/.bun
