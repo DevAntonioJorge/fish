@@ -13,6 +13,8 @@ if status is-interactive
     fish_add_path /bin
     fish_add_path $HOME/.local/bin
 
+    # Homebrew
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
 
     # Bun
     set -gx BUN_INSTALL $HOME/.bun
@@ -26,6 +28,12 @@ if status is-interactive
 
     # Go
     fish_add_path $HOME/go/bin
+
+    # pnpm
+    set -gx PNPM_HOME "/home/aj/.local/share/pnpm"
+    if not string match -q -- "$PNPM_HOME/bin" $PATH
+      set -gx PATH "$PNPM_HOME/bin" $PATH
+    end
 
     # Starship
     starship init fish | source
@@ -116,7 +124,7 @@ if status is-interactive
     abbr --erase z &>/dev/null
     alias z=__zoxide_z
 
-abbr --erase zi &>/dev/null
+    abbr --erase zi &>/dev/null
     alias zi=__zoxide_zi
 
     # Git aliases
