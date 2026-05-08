@@ -13,6 +13,8 @@ if status is-interactive
     fish_add_path /bin
     fish_add_path $HOME/.local/bin
 
+    # Homebrew
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"
 
     # Bun
     set -gx BUN_INSTALL $HOME/.bun
@@ -136,3 +138,10 @@ abbr --erase zi &>/dev/null
     alias ls="eza --icons --group --header --group-directories-first"
     alias la="eza --icons --group --header --group-directories-first --all"
 end
+
+# pnpm
+set -gx PNPM_HOME "/home/aj/.local/share/pnpm"
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
+end
+# pnpm end
