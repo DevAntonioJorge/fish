@@ -29,12 +29,6 @@ if status is-interactive
     # Go
     fish_add_path $HOME/go/bin
 
-    # pnpm
-    set -gx PNPM_HOME "/home/aj/.local/share/pnpm"
-    if not string match -q -- "$PNPM_HOME/bin" $PATH
-      set -gx PATH "$PNPM_HOME/bin" $PATH
-    end
-
     # Starship
     starship init fish | source
 
@@ -143,4 +137,9 @@ if status is-interactive
     alias gr="git restore"
     alias ls="eza --icons --group --header --group-directories-first"
     alias la="eza --icons --group --header --group-directories-first --all"
+end
+
+set -gx PNPM_HOME "/home/aj/.local/share/pnpm"
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+  set -gx PATH "$PNPM_HOME/bin" $PATH
 end
