@@ -1,9 +1,0 @@
-# This file contains fish universal variable definitions.
-# VERSION: 3.0
-SETUVAR __fish_initialized:4300
-SETUVAR _fisher_danhper_2F_fish_2D_ssh_2D_agent_files:\x7e/\x2econfig/fish/functions/__ssh_agent_is_started\x2efish\x1e\x7e/\x2econfig/fish/functions/__ssh_agent_start\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/fish\x2dssh\x2dagent\x2efish
-SETUVAR _fisher_givensuman_2F_fish_2D_bat_files:\x7e/\x2econfig/fish/conf\x2ed/fish\x2dbat\x2efish
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1epatrickf1/fzf\x2efish\x1egivensuman/fish\x2dbat\x1edanhper/fish\x2dssh\x2dagent
-SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR fish_user_paths:/home/aj/\x2elocal/bin\x1e/home/aj/\x2eopencode/bin\x1e/bin\x1e/sbin\x1e/usr/bin\x1e/usr/sbin\x1e/usr/local/bin\x1e/usr/local/sbin
